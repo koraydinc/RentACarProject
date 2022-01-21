@@ -16,14 +16,30 @@ namespace Business.Concrete
         {
             _colorDal = colorsDal;
         }
-        public List<Colors> GetAll()
+
+        public void Add(Color color)
+        {
+            _colorDal.Add(color);
+        }
+
+        public void Delete(Color color)
+        {
+            _colorDal.Delete(color);
+        }
+
+        public List<Color> GetAll()
         {
             return _colorDal.GetAll();
         }
 
-        public List<Colors> GetAllByColorId(int id)
+        public List<Color> GetAllByColorId(int id)
         {
             return _colorDal.GetAll(c => c.ColorId == id);
+        }
+
+        public void Update(Color color)
+        {
+            _colorDal.Update(color);
         }
     }
 }

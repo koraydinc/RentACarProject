@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface ICarService
     {
         IDataResult<List<Car>> GetAll();
-        IDataResult<List<Car>> GetAllByBrandId(int id);
+        IDataResult<List<Car>> GetByBrandId(int id);
         IDataResult<List<Car>> GetByModelYear(decimal min, decimal max);
         IDataResult<List<CarDetailDto>> GetCarDetails();
         IDataResult<Car> GetById (int id);

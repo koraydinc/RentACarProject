@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfColorDal : EfEntityRepositoryBase<Color,RentACarDbContext>,IColorsDal
+    public class EfColorDal : EfEntityRepositoryBase<Color,RentACarDbContext>,IColorDal
     {
         
     }

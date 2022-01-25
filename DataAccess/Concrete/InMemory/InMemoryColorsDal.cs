@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryColorsDal : IColorsDal
+    public class InMemoryColorsDal : IColorDal
     {
         List<Color> _colors;
         public InMemoryColorsDal()

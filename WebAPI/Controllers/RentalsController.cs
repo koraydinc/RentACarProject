@@ -53,6 +53,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(Rental rental)
         {
             var result = _rentalService.Add(rental);
+            //rental.ReturnDate = DateTime.Now;
             if (result.Success)
             {
                 return Ok(result);

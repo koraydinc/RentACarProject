@@ -2,7 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
-using Business.DependencyResolvers;
+using Business.DependencyResolvers.Autofac;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
@@ -15,7 +15,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(b =>
 
 // Add services to the container.
 
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 //builder.Services.AddSingleton<IRentalService,RentalManager>();
 //builder.Services.AddSingleton<IRentalDal, EfRentalDal>();
 //builder.Services.AddSingleton<IUserService, UserManager>();

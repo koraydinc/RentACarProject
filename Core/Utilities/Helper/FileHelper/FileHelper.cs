@@ -7,7 +7,7 @@ namespace Core.Utilities.Helper.FileHelper
 {
     public class FileHelper : IFileHelper
     {
-        private static string _path = Environment.CurrentDirectory + @"\wwwroot\Uploads\Images\";
+        private static string _path = Environment.CurrentDirectory + @"\wwwroot\Uploads\Images\"; //Dosya dizini ataması yapılır.
 
         public  IResult Upload(IFormFile file)
         {
@@ -29,19 +29,19 @@ namespace Core.Utilities.Helper.FileHelper
             CheckDirectoryExists(_path); //Dosyanın kaydedileceği dizin kontrolü yapılır, yoksa oluşturulur.
             CreateImageFile(_path + randomName + type, file); //Dosya ilk parametre'de belirtilen dizine kopyalanır ve bellek boşaltılır.
 
-            return new SuccessResult((randomName + type).Replace("\\", "/")); //SQL kaydolması için dosya adı döndürülür
+            return new SuccessResult(randomName + type); //SQL kaydolması için dosya adı döndürülür.
         }
 
         public  IResult Update(IFormFile file, string filePath)
         {
-            DeleteOldImageFile((filePath).Replace("/", "\\")); //Aynı isimli dosya kontrolü yapar ve varsa siler.
+            DeleteOldImageFile(filePath); //Aynı isimli dosya kontrolü yapar ve varsa siler.
 
             return Upload(file);
         }
 
         public  IResult Delete(string filePath)
         {
-            DeleteOldImageFile((filePath).Replace("/", "\\"));
+            DeleteOldImageFile(filePath);
             return new SuccessResult();
         }
 
@@ -83,9 +83,9 @@ namespace Core.Utilities.Helper.FileHelper
 
         private static void DeleteOldImageFile(string directory) //Aynı isimli dosya kontrolü yapar ve varsa siler.
         {
-            if (File.Exists(directory.Replace("/", "\\")))
+            if (File.Exists(directory))
             {
-                File.Delete(directory.Replace("/", "\\"));
+                File.Delete(directory);
             }
         }
     }

@@ -18,12 +18,12 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from r in context.Rentals
                              join c in context.Cars
-                             on r.CarId equals c.CarId
+                             on r.CarId equals c.Id
                              join cus in context.Customers
-                             on r.CustomerId equals cus.CustomerId
+                             on r.CustomerId equals cus.Id
                              join b in context.Brands
-                             on c.BrandId equals b.BrandId
-                             select new RentalDetailDto { RentId = r.RentId, CompanyName = cus.CompanyName, CarName = c.CarName, BrandName = b.BrandName, ModelYear = c.ModelYear, DailyPrice = c.DailyPrice };
+                             on c.BrandId equals b.Id
+                             select new RentalDetailDto { Id = r.Id, CompanyName = cus.CompanyName, CarName = c.CarName, BrandName = b.BrandName, ModelYear = c.ModelYear, DailyPrice = c.DailyPrice };
                 return result.ToList();
             }
         }

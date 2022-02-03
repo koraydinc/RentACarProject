@@ -45,7 +45,7 @@ namespace Business.Concrete
 
         public IResult Delete(CarImage carImage)
         {
-            IResult result = BusinessRules.Run(CheckImage(carImage.ImageId));
+            IResult result = BusinessRules.Run(CheckImage(carImage.Id));
             if (result != null)
             {
                 return result;
@@ -68,12 +68,12 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> GetByImageId(int imageId)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.ImageId == imageId));
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.Id == imageId));
         }
 
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            IResult result = BusinessRules.Run(CheckImage(carImage.ImageId));
+            IResult result = BusinessRules.Run(CheckImage(carImage.Id));
             if (result != null)
             {
                 return result;
@@ -104,7 +104,7 @@ namespace Business.Concrete
         }
         private IResult CheckImage(int carImageId)
         {
-            var image = _carImageDal.Get(i => i.ImageId == carImageId);
+            var image = _carImageDal.Get(i => i.Id == carImageId);
             if (image == null)
             {
                 return new ErrorResult("Image not found!");

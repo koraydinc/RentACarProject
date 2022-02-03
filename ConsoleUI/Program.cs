@@ -37,11 +37,11 @@ namespace ConsoleUI
             customerManager.Add(new Entities.Concrete.Customer { UserId = 1, CompanyName = "Dinc A.S" });
         }
 
-        private static void UserAddTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new Entities.Concrete.User { FirstName = "Koray", LastName = "Dinc", EMail = "berkay@hotmail.com", Password = "123456" });
-        }
+        //private static void UserAddTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    userManager.Add(new Entities.Concrete.User { FirstName = "Koray", LastName = "Dinc", Email = "berkay@hotmail.com" });
+        //}
 
         private static void BrandAddTest()
         {
@@ -70,7 +70,7 @@ namespace ConsoleUI
 
             foreach (var car in carManager.GetCarDetails().Data)
             {
-                Console.WriteLine("{0}, {1}, {2}, {3}", car.CarId, car.BrandName, car.ColorName, car.DailyPrice);
+                Console.WriteLine("{0}, {1}, {2}, {3}", car.Id, car.BrandName, car.ColorName, car.DailyPrice);
             }
         }
     }

@@ -16,9 +16,9 @@ namespace DataAccess.Concrete.InMemory
         {
             _brands = new List<Brand>
             {
-                new Brand{BrandId=1, BrandName="Mercedes"},
-                new Brand{BrandId=2, BrandName="BMW"},
-                new Brand{BrandId=3, BrandName="Audi"},
+                new Brand{Id=1, BrandName="Mercedes"},
+                new Brand{Id=2, BrandName="BMW"},
+                new Brand{Id=3, BrandName="Audi"},
 
             };
         }
@@ -30,7 +30,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Brand brand)
         {
-            Brand brandToDelete = _brands.SingleOrDefault(b => b.BrandId == brand.BrandId);
+            Brand brandToDelete = _brands.SingleOrDefault(b => b.Id == brand.Id);
             _brands.Remove(brandToDelete);
         }
 
@@ -51,12 +51,12 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Brand> GetById(int id)
         {
-            return _brands.Where(b => b.BrandId == id).ToList();
+            return _brands.Where(b => b.Id == id).ToList();
         }
 
         public void Update(Brand brand)
         {
-            Brand brandToUpdate = _brands.SingleOrDefault(b => b.BrandId == brand.BrandId);
+            Brand brandToUpdate = _brands.SingleOrDefault(b => b.Id == brand.Id);
             brandToUpdate.BrandName = brand.BrandName;
         }
 
